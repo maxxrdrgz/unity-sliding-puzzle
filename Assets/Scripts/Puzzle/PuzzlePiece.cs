@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PuzzlePiece
 {
-    public static int CurrentRow {get; set;}
-    public static int CurrentCol {get; set;}
-    public static int OriginalRow {get; set;}
-    public static int OriginalCol {get; set;}
-    public static GameObject GameObject {get; set;}
+    public int CurrentRow {get; set;}
+    public int CurrentCol {get; set;}
+    public int OriginalRow {get; set;}
+    public int OriginalCol {get; set;}
+    public GameObject GameObject {get; set;}
 }
