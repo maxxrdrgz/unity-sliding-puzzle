@@ -492,6 +492,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &286084489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286084491}
+  - component: {fileID: 286084490}
+  m_Layer: 0
+  m_Name: Puzzle Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &286084490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286084489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4697096239f6fe4fa0ec083852e0658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePieces:
+  - {fileID: 1785619716}
+  - {fileID: 1429173967}
+  - {fileID: 258782847}
+  - {fileID: 1939391132}
+  - {fileID: 664922494}
+  - {fileID: 506563420}
+  - {fileID: 129174034}
+  - {fileID: 1300060305}
+  - {fileID: 1572635}
+  - {fileID: 707132019}
+  - {fileID: 306715441}
+  - {fileID: 1302272169}
+  - {fileID: 323753626}
+  - {fileID: 2070377232}
+  - {fileID: 1916654368}
+  - {fileID: 1682778442}
+--- !u!4 &286084491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286084489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1517594, y: 0.5549344, z: 154.47249}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306715441
 GameObject:
   m_ObjectHideFlags: 0
