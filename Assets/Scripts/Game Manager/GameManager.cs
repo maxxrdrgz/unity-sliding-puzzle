@@ -26,7 +26,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(SceneManager.GetActiveScene().name == "Gameplay"){
+            switch (gameState)
+            {
+                case GameState.Playing:
+                    CheckInput();
+                    break;
+                case GameState.Animating:
+                    AnimateMovement(PieceToAnimate, Time.deltaTime);
+                    CheckIfAnimationEnded();
+                    break;
+                case GameState.End:
+                    print("game over");
+                    return;
+                    break;
+            }
+        }
     }
 
     void MakeSingleton(){
@@ -171,5 +186,32 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void AnimateMovement(PuzzlePiece toMove, float time){
+        toMove.GameObject.transform.position = Vector2.MoveTowards(toMove.GameObject.transform.position, screenPosToAnimate, animSpeed*time);
+    }
+
+    private void CheckIfAnimationEnded(){
+        if(Vector2.Distance(PieceToAnimate.GameObject.transform.position, screenPosToAnimate) < 0.1f){
+            Swap(PieceToAnimate.CurrentRow, PieceToAnimate.CurrentCol, toAnimateRow, toAnimateCol);
+            gameState = GameState.Playing;
+            CheckForVictory();
+        }
+    }
+
+    private void CheckForVictory(){
+        for(int row = 0; row < GameVariables.MaxRows; row++){
+            for(int col = 0; col < GameVariables.MaxCols; col++){
+                if(matrix[row, col] == null){
+                    continue;
+                }
+                if(matrix[row, col].CurrentRow != matrix[row, col].OriginalRow ||
+                matrix[row, col].CurrentCol != matrix[row, col].OriginalCol){
+                    return;
+                }
+            }
+        }
+        gameState = GameState.End;
     }
 }
