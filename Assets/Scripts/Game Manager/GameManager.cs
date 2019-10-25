@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     void GameStarted(){
         int index = Random.Range(0, GameVariables.MaxSize);
-        puzzlePieces[index].SetActive(false);
+        //puzzlePieces[index].SetActive(false);
 
         for(int row = 0; row < GameVariables.MaxRows; row++){
             for(int col = 0; col < GameVariables.MaxCols; col++){
@@ -89,12 +89,14 @@ public class GameManager : MonoBehaviour
                     matrix[row, col].GameObject = puzzlePieces[row * GameVariables.MaxCols + col];
                     matrix[row, col].OriginalRow = row;
                     matrix[row, col].OriginalCol = col;
+                    print("row: " + row + " col: " + col);
+                    print(puzzlePieces[row * GameVariables.MaxCols + col].name);
                 }else{
                     matrix[row, col] = null;
                 }
             }
         }
-        Shuffle();
+        //Shuffle();
         gameState = GameState.Playing;
     }
 
@@ -173,7 +175,7 @@ public class GameManager : MonoBehaviour
                     pieceFound = true;
                     toAnimateRow = rowFound +1;
                     toAnimateCol = colFound;
-                }else if(colFound == GameVariables.MaxCols -1 && matrix[rowFound, colFound +1] == null){
+                }else if(colFound < GameVariables.MaxCols -1 && matrix[rowFound, colFound +1] == null){
                     pieceFound = true;
                     toAnimateRow = rowFound;
                     toAnimateCol = colFound + 1;
@@ -204,10 +206,18 @@ public class GameManager : MonoBehaviour
         for(int row = 0; row < GameVariables.MaxRows; row++){
             for(int col = 0; col < GameVariables.MaxCols; col++){
                 if(matrix[row, col] == null){
+                    print("row: " + row + " col: " + col);
+                    print("equals null");
                     continue;
                 }
                 if(matrix[row, col].CurrentRow != matrix[row, col].OriginalRow ||
                 matrix[row, col].CurrentCol != matrix[row, col].OriginalCol){
+                    print("------ CheckForVictory ------");
+                    print("row: " + row + " col: " + col);
+                    print("matrix: " +matrix[row, col]);
+                    print("CurrentRow: " + matrix[row, col].CurrentRow + " CurrentCol: " + matrix[row, col].CurrentCol);
+                    print("OriginalRow: " + matrix[row, col].OriginalRow + " OriginalCol: " + matrix[row, col].OriginalCol);
+
                     return;
                 }
             }
