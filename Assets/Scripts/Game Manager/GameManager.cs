@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     void GameStarted(){
         int index = Random.Range(0, GameVariables.MaxSize);
-        //puzzlePieces[index].SetActive(false);
+        puzzlePieces[index].SetActive(false);
 
         for(int row = 0; row < GameVariables.MaxRows; row++){
             for(int col = 0; col < GameVariables.MaxCols; col++){
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        //Shuffle();
+        Shuffle();
         gameState = GameState.Playing;
     }
 
