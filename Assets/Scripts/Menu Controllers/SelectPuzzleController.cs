@@ -5,21 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SelectPuzzleController : MonoBehaviour
 {
+    /** 
+        This function will get the name of the button that was pressed, which
+        is the name of the puzzle that the player has selected. It will then
+        set the index in the game manager.
+    */
     public void SelectPuzzle(){
         string[] name = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name.Split();
         int index = int.Parse(name[1]);
         if(GameManager.instance != null){
             GameManager.instance.SetPuzzleIndex(index);
         }
-        switch (index)
-        {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
+
         SceneManager.LoadScene("Gameplay");
     }
 
