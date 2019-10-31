@@ -179,7 +179,11 @@ public class GameManager : MonoBehaviour
     }
 
     /** 
-        
+        This function will detect when the user clicks on the left mouse button,
+        and cast a ray into the 2d plane. It will check if the user has clicked
+        on a puzzle piece. If true, it will then check if the empty space is
+        next to piece the user clicked on. If that is true, the piece will swap
+        with the empty piece.
     */
     private void CheckInput(){
         if(Input.GetMouseButtonDown(0)){
